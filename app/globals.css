@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: #0f1c2a;
+  color: #e0e8f0;
+}
+
+/* ── Scroll-reveal ────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(44px);
+  transition:
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.from-left {
+  transform: translateX(-44px);
+}
+
+.reveal.from-right {
+  transform: translateX(44px);
+}
+
+.reveal.from-zoom {
+  transform: scale(0.92);
+  opacity: 0;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none !important;
+}
+
+.delay-1 {
+  transition-delay: 0.07s;
+}
+
+.delay-2 {
+  transition-delay: 0.14s;
+}
+
+.delay-3 {
+  transition-delay: 0.21s;
+}
+
+.delay-4 {
+  transition-delay: 0.28s;
+}
+
+.delay-5 {
+  transition-delay: 0.35s;
+}
+
+.delay-6 {
+  transition-delay: 0.42s;
+}
+
+/* ── Spinning photo ring ───────────────────── */
+@property --ring-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.photo-ring {
+  background: conic-gradient(from var(--ring-angle),
+      #3f6688, #254c6c, #1c3d5a, #254c6c, #1a5c5c, #254c6c, #3f6688);
+  animation: ringRotate 5s linear infinite, ringGlow 5s ease-in-out infinite;
+  border-radius: 50%;
+}
+
+@keyframes ringRotate {
+  to {
+    --ring-angle: 360deg;
+  }
+}
+
+@keyframes ringGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 28px rgba(37, 76, 108, 0.45), 0 0 56px rgba(37, 76, 108, 0.25);
+  }
+
+  50% {
+    box-shadow: 0 0 48px rgba(37, 76, 108, 0.65), 0 0 88px rgba(37, 76, 108, 0.35);
+  }
+}
+
+/* ── Scroll progress bar ──────────────────── */
+#scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  width: 0%;
+  z-index: 9999;
+  background: linear-gradient(90deg, #254c6c, #3f6688, #1a5c5c);
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+/* ── Section underline ────────────────────── */
+.heading-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 16px;
+}
+
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2.5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #254c6c, #3f6688, #1a5c5c);
+  transition: width 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.heading-underline.line-visible::after {
+  width: 64px;
+}
+
+/* ── Timeline track ───────────────────────── */
+.tl-track::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #254c6c 0%, #3f6688 45%, #1a5c5c 75%, transparent);
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .tl-track::before {
+    left: 8px;
+    transform: none;
+  }
+}
