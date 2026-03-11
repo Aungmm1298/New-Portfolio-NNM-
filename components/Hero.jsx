@@ -1,15 +1,19 @@
-import Image from 'next/image';
-import SectionReveal from './SectionReveal';
-import Typewriter from './Typewriter';
-import { profile } from '@/data/portfolio';
+import Image from "next/image";
+import SectionReveal from "./SectionReveal";
+import Typewriter from "./Typewriter";
+import { profile } from "@/data/portfolio";
 
 /* ── small stat card ─────────────────────────────── */
 function MetricCard({ value, label }) {
   return (
-    <div className="bg-brand-800 rounded-2xl p-4 text-center border border-brand-600/40
+    <div
+      className="bg-brand-800 rounded-2xl p-4 text-center border border-brand-600/40
       shadow-sm hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-md
-      transition-all duration-200 cursor-default">
-      <div className="font-serif text-2xl font-bold text-brand-400">{value}</div>
+      transition-all duration-200 cursor-default"
+    >
+      <div className="font-serif text-2xl font-bold text-brand-400">
+        {value}
+      </div>
       <div className="text-[0.68rem] text-slate-400 uppercase tracking-wider font-medium mt-0.5">
         {label}
       </div>
@@ -20,8 +24,10 @@ function MetricCard({ value, label }) {
 /* ── info chip ───────────────────────────────────── */
 function InfoChip({ icon, text }) {
   return (
-    <div className="flex items-center gap-2 bg-brand-800 border border-brand-600/40 rounded-full
-      px-4 py-1.5 text-sm text-slate-300 font-medium shadow-sm">
+    <div
+      className="flex items-center gap-2 bg-brand-800 border border-brand-600/40 rounded-full
+      px-4 py-1.5 text-sm text-slate-300 font-medium shadow-sm"
+    >
       <i className={`${icon} text-brand-400 text-xs`} />
       {text}
     </div>
@@ -31,16 +37,22 @@ function InfoChip({ icon, text }) {
 /* ── about stat item ─────────────────────────────── */
 function AboutStat({ icon, value, label }) {
   return (
-    <div className="flex items-center gap-4 bg-brand-800 rounded-2xl p-4 border border-brand-600/40
+    <div
+      className="flex items-center gap-4 bg-brand-800 rounded-2xl p-4 border border-brand-600/40
       shadow-sm hover:translate-x-1 hover:border-brand-400/60 hover:shadow-md
-      transition-all duration-200 group cursor-default">
-      <div className="w-11 h-11 rounded-[14px] flex items-center justify-center flex-shrink-0
+      transition-all duration-200 group cursor-default"
+    >
+      <div
+        className="w-11 h-11 rounded-[14px] flex items-center justify-center flex-shrink-0
         bg-brand-700/60 border border-brand-500/40 text-brand-400
-        group-hover:bg-brand-600/50 group-hover:scale-105 transition-all">
+        group-hover:bg-brand-600/50 group-hover:scale-105 transition-all"
+      >
         <i className={icon} />
       </div>
       <div>
-        <div className="font-serif font-bold text-xl text-slate-100">{value}</div>
+        <div className="font-serif font-bold text-xl text-slate-100">
+          {value}
+        </div>
         <div className="text-sm text-slate-400 leading-tight">{label}</div>
       </div>
     </div>
@@ -51,11 +63,13 @@ export default function Hero() {
   return (
     <>
       {/* ══ HERO ══════════════════════════════════════════════════════════ */}
-      <section id="hero" className="relative pt-28 pb-20 bg-transparent overflow-hidden">
+      <section
+        id="hero"
+        className="relative pt-28 pb-20 bg-transparent overflow-hidden"
+      >
         {/* BG blobs removed to cleaner Vanta view */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
             {/* Left — text */}
             <div>
               <SectionReveal>
@@ -65,20 +79,30 @@ export default function Hero() {
               </SectionReveal>
 
               <SectionReveal delay="delay-1">
-                <h1 className="font-serif text-5xl sm:text-6xl lg:text-[4.5rem] font-bold
-                  text-slate-100 leading-[1.05] mb-5">
-                  Naing{' '}
-                  <span className="bg-gradient-to-br from-brand-500 to-brand-700
-                    bg-clip-text text-transparent">
+                <h1
+                  className="font-serif text-5xl sm:text-6xl lg:text-[4.5rem] font-bold
+                  text-slate-100 leading-[1.05] mb-5"
+                >
+                  Naing{" "}
+                  <span
+                    className="bg-gradient-to-br from-brand-500 to-brand-700
+                    bg-clip-text text-transparent"
+                  >
                     Naing Maw
                   </span>
                 </h1>
               </SectionReveal>
 
               <SectionReveal delay="delay-2">
-                <p className="text-slate-400 text-sm font-medium uppercase tracking-[2.5px] mb-6
-                  pb-6 border-b border-brand-700/60 min-h-[3.5rem]">
-                  <Typewriter text={profile.title.toUpperCase()} delay={120} pause={3000} />
+                <p
+                  className="text-slate-400 text-sm font-medium uppercase tracking-[2.5px] mb-6
+                  pb-6 border-b border-brand-700/60 min-h-[3.5rem]"
+                >
+                  <Typewriter
+                    text={profile.title.toUpperCase()}
+                    delay={120}
+                    pause={3000}
+                  />
                 </p>
               </SectionReveal>
 
@@ -130,10 +154,15 @@ export default function Hero() {
             </div>
 
             {/* Right — photo */}
-            <SectionReveal direction="right" className="flex flex-col items-center">
+            <SectionReveal
+              direction="right"
+              className="flex flex-col items-center"
+            >
               {/* Ring wrapper */}
-              <div className="photo-ring p-[4px] rounded-full w-[280px] h-[280px] sm:w-[320px] sm:h-[320px]
-                hover:scale-105 transition-transform duration-500">
+              <div
+                className="photo-ring p-[4px] rounded-full w-[280px] h-[280px] sm:w-[320px] sm:h-[320px]
+                hover:scale-105 transition-transform duration-500"
+              >
                 <div className="w-full h-full rounded-full overflow-hidden bg-brand-700 p-[5px]">
                   <Image
                     src={profile.photo}
@@ -160,12 +189,13 @@ export default function Hero() {
       {/* ══ ABOUT ════════════════════════════════════════════════════════ */}
       <section id="about" className="py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           {/* Heading */}
           <SectionReveal>
             <div className="text-center mb-14">
-              <span className="inline-block text-[0.7rem] font-semibold uppercase tracking-[3.5px]
-                text-brand-400 bg-brand-700/40 border border-brand-500/40 px-3.5 py-1.5 rounded-full mb-4">
+              <span
+                className="inline-block text-[0.7rem] font-semibold uppercase tracking-[3.5px]
+                text-brand-400 bg-brand-700/40 border border-brand-500/40 px-3.5 py-1.5 rounded-full mb-4"
+              >
                 Who I Am
               </span>
               <div className="relative inline-block">
@@ -196,7 +226,9 @@ export default function Hero() {
 
               {profile.bio.map((para, i) => (
                 <SectionReveal key={i} delay={`delay-${i + 2}`} direction="random">
-                  <p className="text-slate-300 leading-relaxed text-[0.97rem] mb-5">{para}</p>
+                  <p className="text-slate-300 leading-relaxed text-[0.97rem] mb-5">
+                    {para}
+                  </p>
                 </SectionReveal>
               ))}
             </div>

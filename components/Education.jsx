@@ -1,34 +1,47 @@
-import SectionHeading from './ui/SectionHeading';
-import SectionReveal from './SectionReveal';
-import { education } from '@/data/portfolio';
+import SectionHeading from "./ui/SectionHeading";
+import SectionReveal from "./SectionReveal";
+import { education } from "@/data/portfolio";
 
 function EduCard({ edu, delay }) {
   return (
     <SectionReveal direction="random" delay={delay}>
-      <div className={`group relative bg-brand-800 rounded-2xl border shadow-sm
+      <div
+        className={`group relative bg-brand-800 rounded-2xl border shadow-sm
         hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden
-        ${edu.active
-          ? 'border-brand-500/60 hover:border-brand-400/80'
-          : 'border-brand-700/50 hover:border-brand-600/60'}`}>
-
+        ${
+          edu.active
+            ? "border-brand-500/60 hover:border-brand-400/80"
+            : "border-brand-700/50 hover:border-brand-600/60"
+        }`}
+      >
         {/* Accent stripe */}
-        <div className={`h-1 w-full ${edu.active
-          ? 'bg-gradient-to-r from-brand-400 via-brand-500 to-teal-500'
-          : 'bg-gradient-to-r from-slate-300 to-slate-400'}`} />
+        <div
+          className={`h-1 w-full ${
+            edu.active
+              ? "bg-gradient-to-r from-brand-400 via-brand-500 to-teal-500"
+              : "bg-gradient-to-r from-slate-300 to-slate-400"
+          }`}
+        />
 
         <div className="p-8">
           {/* Background year watermark */}
-          <div className="absolute -bottom-2 -right-2 font-serif text-[4.5rem] font-bold
+          <div
+            className="absolute -bottom-2 -right-2 font-serif text-[4.5rem] font-bold
             leading-none select-none pointer-events-none
-            text-brand-400/8 group-hover:text-brand-400/15 transition-colors">
+            text-brand-400/8 group-hover:text-brand-400/15 transition-colors"
+          >
             {edu.bgYear}
           </div>
 
           {/* Icon */}
-          <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5
-            ${edu.active
-              ? 'bg-brand-600/40 border border-brand-500/50 text-brand-400'
-              : 'bg-brand-700/50 border border-brand-600/40 text-slate-400'}`}>
+          <div
+            className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5
+            ${
+              edu.active
+                ? "bg-brand-600/40 border border-brand-500/50 text-brand-400"
+                : "bg-brand-700/50 border border-brand-600/40 text-slate-400"
+            }`}
+          >
             <i className={`${edu.icon} text-xl`} />
           </div>
 
@@ -54,11 +67,15 @@ function EduCard({ edu, delay }) {
               {edu.location}
             </span>
 
-            <span className={`text-[0.65rem] font-semibold uppercase tracking-[2px]
+            <span
+              className={`text-[0.65rem] font-semibold uppercase tracking-[2px]
               border px-2.5 py-0.5 rounded-full
-              ${edu.active
-                ? 'text-emerald-400 bg-emerald-900/40 border-emerald-600/50'
-                : 'text-slate-400 bg-brand-700/40 border-brand-600/40'}`}>
+              ${
+                edu.active
+                  ? "text-emerald-400 bg-emerald-900/40 border-emerald-600/50"
+                  : "text-slate-400 bg-brand-700/40 border-brand-600/40"
+              }`}
+            >
               {edu.status}
             </span>
           </div>
